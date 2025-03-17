@@ -5,7 +5,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8080;
 const app = express();
 
-// Config view engine
+// Config view engine 
 configViewEngine(app);
 //init web routes
 initWebRoutes(app);
