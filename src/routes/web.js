@@ -11,7 +11,7 @@ const router = express.Router();
 const initWebRoutes = (app) => {
     router.get("/", homeController.handleHello)
 
-    router.get("/about", homeController.handleUserPage)
+    router.get("/user", homeController.handleUserPage)
     return app.use("/", router) // Bắt đầu bằng trang chủ
 }
 
