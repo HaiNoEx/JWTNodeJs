@@ -12,7 +12,9 @@ const initWebRoutes = (app) => {
     router.get("/", homeController.handleHello)
 
     router.get("/user", homeController.handleUserPage)
+    router.post("/users/create-user", homeController.handleCreateNewUser)
     return app.use("/", router) // Bắt đầu bằng trang chủ
+
 }
 
 export default initWebRoutes;
