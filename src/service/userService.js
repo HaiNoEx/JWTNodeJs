@@ -24,7 +24,7 @@ const createNewUser = async (email, password, username) => {
     })
     try {
         const [rows, fields] = await connection.execute(
-            'INSERT INTO users(email, password, username) VALUES (?, ?, ?)',
+            'INSERT INTO user(email, password, username) VALUES (?, ?, ?)',
             [email, hashPassword, username]
         );
     } catch (error) {
@@ -43,15 +43,15 @@ const getUserList = async () => {
     })
     
 
-    // connection.query('select * from users',
+    // connection.query('select * from user',
     //     function(err, results, fields){
     //         if(err){
     //             console.log(err);
-    //             return users;
+    //             return user;
     //         }
 
-    //         users = results;
-    //         return users;
+    //         user = results;
+    //         return user;
     //     }
     // );
 
@@ -64,7 +64,7 @@ const getUserList = async () => {
 
     try {
         const [rows, fields] = await connection.execute(
-            'select * from users'
+            'select * from user'
         );
         
         return rows;  
@@ -84,7 +84,7 @@ const deleteUser = async (id) =>  {
     })
     try {
         const [rows, fields] = await connection.execute(
-            'delete from users where id = ?', [id]
+            'delete from user where id = ?', [id]
         );
         
         return rows;  
@@ -102,7 +102,7 @@ const getUserById = async (id) => {
     })
     try {
         const [rows, fields] = await connection.execute(
-            'select * from users where id=?', [id]
+            'select * from user where id=?', [id]
         );
         
         return rows;  
@@ -120,7 +120,7 @@ const updateUserInfo = async (email, username, id) => {
     })
     try {
         const [rows, fields] = await connection.execute(
-            'update users set email = ?, username = ? where id=?', [email,username,id]
+            'update user set email = ?, username = ? where id=?', [email,username,id]
         );
         
         return rows;  
