@@ -5,7 +5,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8080;
 const app = express();
 import bodyParser from 'body-parser';
-
+//import connection from "./config/connectDB";
 
 
 // Config view engine 
@@ -14,6 +14,9 @@ configViewEngine(app);
 //config body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+//Test connection db
+//connection();
 
 //init web routes
 initWebRoutes(app);
