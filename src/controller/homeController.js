@@ -23,8 +23,6 @@ const handleCreateNewUser = (req, res) => {
 }
 
 const handleDeleteUser = async (req, res) => {
-    console.log(" >> id: ", req.params.id);
-
     await userService.deleteUser(req.params.id);
 
     return res.redirect("/user")
@@ -34,9 +32,11 @@ const getUpdateUserPage = async (req, res) => {
     let id = req.params.id;
     let user = await userService.getUserById(id);
     let userData = {};
-    if(user && user.length > 0){
-        userData = user[0]
-    }
+    userData = user;
+
+    // if(user && user.length > 0){
+    //     userData = user[0]
+    // }
     console.log("User : ", user);
     return res.render("user-update.ejs", {userData});
 }
