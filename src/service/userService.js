@@ -129,7 +129,7 @@ const updateUserInfo = async (email, username, id) => {
         {email: email,username:username},
         {
             where:{
-                id:id
+                id:id 
             }
         }
     );
