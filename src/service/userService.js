@@ -31,6 +31,26 @@ const createNewUser = async (email, password, username) => {
 }
 
 const getUserList = async () => {
+    //Test relationship
+    let newUser = await db.User.findOne({
+        where: {id: 1},
+        attributes: ["id", "username", "email"],
+        include: {model: db.Group, attributes: ["id", "name", "description"]},
+        raw: true,
+        nest: true
+    });
+
+    let roles = await db.Group.findOne({
+        where: {id: 1},
+        include: {model: db.Role},
+        raw: true,
+        nest: true
+    })
+
+    console.log(' >> User: ', newUser);
+
+
+
     // const connection = await mysql.createConnection({
     //     host: 'localhost',
     //     user: 'root',
